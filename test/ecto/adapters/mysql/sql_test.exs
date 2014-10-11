@@ -91,13 +91,13 @@ defmodule Ecto.Adapters.Mysql.SQLTest do
   end
 
   test "limit and offset" do
-    query = Model |> limit(3) |> select([], 0) |> normalize
+    query = Model |> limit([r], 3) |> select([], 0) |> normalize
     assert SQL.select(query) == {~s{SELECT 0\nFROM `model` AS m0\nLIMIT 3}, []}
 
-    query = Model |> offset(5) |> select([], 0) |> normalize
+    query = Model |> offset([r], 5) |> select([], 0) |> normalize
     assert SQL.select(query) == {~s{SELECT 0\nFROM `model` AS m0\nOFFSET 5}, []}
 
-    query = Model |> offset(5) |> limit(3) |> select([], 0) |> normalize
+    query = Model |> offset([r], 5) |> limit([r], 3) |> select([], 0) |> normalize
     assert SQL.select(query) == {~s{SELECT 0\nFROM `model` AS m0\nLIMIT 3\nOFFSET 5}, []}
   end
 

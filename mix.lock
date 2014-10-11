@@ -1,5 +1,6 @@
 %{"decimal": {:package, "0.2.5"},
   "earmark": {:package, "0.1.10"},
+  "emysql": {:git, "git://github.com/eonblast/emysql.git", "c7e2103f8b737667f0128802e8de2f0d5ed2fa5c", []},
   "ex_doc": {:package, "0.6.0"},
   "poolboy": {:package, "1.3.0"},
   "postgrex": {:package, "0.6.0"}}

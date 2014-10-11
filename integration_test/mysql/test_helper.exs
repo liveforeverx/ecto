@@ -126,6 +126,7 @@ defmodule Ecto.Integration.Mysql.Case do
   # end
 
   setup do
+
     on_exit fn ->
       Mysql.query(TestRepo, "TRUNCATE TABLE posts", [])
       Mysql.query(TestRepo, "TRUNCATE TABLE permalinks", [])
@@ -141,6 +142,7 @@ defmodule Ecto.Integration.Mysql.Case do
 end
 
 Application.ensure_all_started(:logger)
+Application.ensure_all_started(:emysql)
 
 setup_cmds = [
   ~s(mysql -u ecto -e "DROP DATABASE IF EXISTS ecto_test;"),
